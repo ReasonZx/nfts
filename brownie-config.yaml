@@ -1,0 +1,14 @@
+dependencies:
+  - smartcontractkit/chainlink-brownie-contracts@1.1.1
+  - OpenZeppelin/openzeppelin-contracts@4.0.0
+compiler:
+  solc:
+    remappings:
+      - "@openzeppelin=OpenZeppelin/openzeppelin-contracts@4.1.0"
+wallets:
+  from_key: ${PRIVATE_KEY}
+jsonNftURI:
+  pt: "https://api.npoint.io/27c7c27ff7ab13397ab2"
+  de: "https://api.npoint.io/a461d96e61596b6064b7"
+  ch: "https://api.npoint.io/c995e818d09489e98a48"
+

@@ -1,0 +1,11 @@
+{
+	"name":"PT flag",
+	"image":"https://images.emojiterra.com/google/noto-emoji/unicode-15/color/share/1f1f5-1f1f9.jpg",
+	"attributes": [
+		{"value":"40","trait_type":"north"},
+		{"value":"40","trait_type":"south"},
+		{"value":"0","trait_type":"east"},
+		{"value":"100","trait_type":"west"}
+	],
+	"description":"The flag of Portugal"
+}

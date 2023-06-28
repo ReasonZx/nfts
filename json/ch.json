@@ -1,0 +1,11 @@
+{
+    "name":"CH flag",
+    "image":"https://images.emojiterra.com/google/noto-emoji/unicode-15/color/share/1f1e8-1f1ed.jpg",
+    "attributes": [
+        {"value":"50","trait_type":"north"},
+        {"value":"50","trait_type":"south"},
+        {"value":"50","trait_type":"east"},
+        {"value":"50","trait_type":"west"}
+    ],
+    "description":"The flag of Switzerland"
+}

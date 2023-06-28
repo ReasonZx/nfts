@@ -1,0 +1,11 @@
+{
+    "name":"DE flag",
+    "image":"https://images.emojiterra.com/google/noto-emoji/unicode-15/color/share/1f1e9-1f1ea.jpg",
+    "attributes": [
+        {"value":"60","trait_type":"north"},
+        {"value":"30","trait_type":"south"},
+        {"value":"60","trait_type":"east"},
+        {"value":"40","trait_type":"west"}
+    ],
+    "description":"The flag of Germany"
+}
