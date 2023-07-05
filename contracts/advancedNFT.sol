@@ -34,7 +34,7 @@ contract advancedNFT is ERC721URIStorage, VRFConsumerBase {
         emit requestedNFT(requestId, msg.sender);
     }
 
-    function fulfillRandomness(bytes requestId, uint256 randomNumber) internal override {
+    function fulfillRandomness(bytes32 requestId, uint256 randomNumber) internal override {
         uint256 newTokenId = tokenCounter;
         Country country = Country(randomNumber % 3);
         tokenIdMappedToCountry[newTokenId] = country;
@@ -46,7 +46,7 @@ contract advancedNFT is ERC721URIStorage, VRFConsumerBase {
 
     }
 
-    function setTokenURI(uint256 tokenId, string _tokenURI) public {
+    function setTokenURI(uint256 tokenId, string memory _tokenURI) public {
         require(_isApprovedOrOwner(_msgSender(), tokenId), "ERC721: caller is not owner nor approved.");
         _setTokenURI(tokenId, _tokenURI);
     }
