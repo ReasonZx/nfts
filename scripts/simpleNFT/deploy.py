@@ -1,5 +1,5 @@
 from brownie import simpleNFT, config, network
-from scripts import helpfulScripts
+from scripts.simpleNFT import helpfulScripts
 from web3 import Web3
 
 

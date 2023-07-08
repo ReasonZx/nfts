@@ -1,15 +1,28 @@
 dependencies:
-  - smartcontractkit/chainlink-brownie-contracts@1.1.1
-  - OpenZeppelin/openzeppelin-contracts@4.0.0
+  - smartcontractkit/chainlink-brownie-contracts@0.6.1
+  - OpenZeppelin/openzeppelin-contracts@4.1.0
 compiler:
   solc:
     remappings:
       - "@openzeppelin=OpenZeppelin/openzeppelin-contracts@4.1.0"
-      - "@chainlink=smartcontractkit/chainlink-brownie-contracts@1.1.1"
+      - "@chainlink=smartcontractkit/chainlink-brownie-contracts@0.6.1"
 wallets:
   from_key: ${PRIVATE_KEY}
 jsonNftURI:
   pt: "https://api.npoint.io/27c7c27ff7ab13397ab2"
   de: "https://api.npoint.io/a461d96e61596b6064b7"
   ch: "https://api.npoint.io/c995e818d09489e98a48"
+networks:
+  mainnet-fork:
+    vrfCoordinator: '0x271682DEB8C4E0901D1a1550aD2e64D568E69909'
+    link: '0x514910771AF9Ca656af840dff83E8264EcF986CA'
+    keyHash: '0x8af398995b04c28e9951adb9721ef74c74f93e6a478f39e7e0777be13527e7ef'
+    fee: 100000000000000000
+    verify: False
+  sepolia:
+    vrfCoordinator: "0x8103B0A8A00be2DDC778e6e7eaa21791Cd364625"
+    link: "0x779877A7B0D9E8603169DdbD7836e478b4624789"
+    keyHash: "0x0476f9a745b61ea5c0ab224d3a6e4c99f0b02fce4da01143a4f70aa80ae76e8a"
+    fee: 100000000000000000
+    verify: False
 
