@@ -1,8 +1,8 @@
 # Nfts
 
-Smart Contract example deployed @ **0x5e76df22686883e0649c61d89891310814c2bd9b** on Eth Testnet - **Sepolia**
+Smart Contract example for simpleNFT deployed @ **0x5e76df22686883e0649c61d89891310814c2bd9b** on Eth Testnet - **Sepolia**
 
-OpenSea link for NFTs:
+OpenSea link for simpleNFTs:
 https://testnets.opensea.io/collection/flags-10
 
 (metadata might be outdated though)
@@ -26,10 +26,10 @@ $brownie run scripts/deploy.py --network sepolia
 - Edit the metadata in [](./json) with the details for the NFT you want to create
 - Store the json somewhere on the internet (preferably ona decentralized platform)
 - Add the link to the json on [](./brownie-config.yaml)
-- Edit last line of [](./scripts/createNFT.py) to contain the new country
+- Edit last line of [](./scripts/simpleNFT/createNFT.py) to contain the new country
 
 ## Testnet
 Run:
 ```
-$brownie run scripts/createNFT.py --network sepolia
+$brownie run scripts/simpleNFT/createNFT.py --network sepolia
 ```
