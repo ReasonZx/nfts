@@ -5,8 +5,7 @@ from web3 import Web3
 
 
 def createNft(account, nftSC, country):
-    helpfulScripts.fundSC(nftSC, account,"link", _ammount = 100000000000000000) #0.1
-    tx = nftSC.createNFT(config["jsonNftURI"][country], {"from": account})
+    tx = nftSC.createNFT("jsonNftURI", {"from": account})
     tx.wait(1)
     return tx
     
