@@ -18,8 +18,10 @@ contract advancedNFT is VRFConsumerBaseV2, ERC721URIStorage {
     uint64 subscriptionId;
     VRFCoordinatorV2Interface COORDINATOR;
     enum Country{DE, PT, CH}
-    mapping(uint256 => Country) tokenIdMappedToCountry;
-    mapping(uint256 => address) requestIdMappedToSender;
+    mapping(uint256 => Country) public tokenIdMappedToCountry;
+    mapping(uint256 => address) public requestIdMappedToSender;
+    mapping(uint256 => uint256) public requestIdToTokenId;
+    mapping(uint256 => string) public requestIdToTokenURI;
     event requestedNFT(uint256 indexed requestId, address requester);
     event countryAssigned(uint256 indexed tokenId, Country country);
 
@@ -36,20 +38,25 @@ contract advancedNFT is VRFConsumerBaseV2, ERC721URIStorage {
 
 
     function createNFT(string memory tokenURI) public returns (uint256){
-        uint256 requestId = COORDINATOR.requestRandomWords(keyhash, subscriptionId, 3, 100000, 1);
+        uint256 requestId = COORDINATOR.requestRandomWords(keyhash, subscriptionId, 3, 1000000, 1);
         requestIdMappedToSender[requestId] = msg.sender;
-        //tokenIdMappedToCountry
+        requestIdToTokenURI[requestId] = tokenURI;
         emit requestedNFT(requestId, msg.sender);
     }
 
     function fulfillRandomWords(uint256 requestId, uint256[] memory randomNumber) internal override {
         uint256 newTokenId = tokenCounter;
+        string memory tokenURI = requestIdToTokenURI[requestId];
+        address owner = requestIdMappedToSender[requestId];
+
+        _safeMint(owner, newTokenId);
+        _setTokenURI(newTokenId, tokenURI);
         Country country = Country(randomNumber[0] % 3);
         tokenIdMappedToCountry[newTokenId] = country;
+        requestIdToTokenId[requestId] = newTokenId;
         emit countryAssigned(newTokenId, country);
 
-        address owner = requestIdMappedToSender[requestId];
-        _safeMint(owner, newTokenId);
+        
         tokenCounter++;
 
     }

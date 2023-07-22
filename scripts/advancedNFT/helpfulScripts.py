@@ -1,5 +1,5 @@
-from brownie import (accounts, network, config, Contract, LinkToken)
-
+from brownie import (accounts, network, config, Contract, LinkToken, web3)
+import time
 
 contractList = {
     "link": LinkToken
@@ -51,3 +51,27 @@ def fundSC (_SCadress, _account=None, _tokenName=None, _ammount = 10000000000000
     
     print("Contracted funded!")
     return tx
+
+
+def getCountry(countryNumber):
+    switch = {0: "DE", 1: "PT", 2: "CH"}
+    return switch[countryNumber]
+
+
+def listenForEvent(brownieContract, event, timeout=500, pollInterval=5):
+    #Blocking function to wait for a SC event (polling it)
+    web3Contract = web3.eth.contract(
+        address=brownieContract.address, abi=brownieContract.abi
+    )
+    startTime = time.time()
+    currentTime = time.time()
+    eventFilter = web3Contract.events[event].createFilter(fromBlock="latest")
+    while currentTime - startTime < timeout:
+        for eventResponse in eventFilter.get_new_entries():
+            if event in eventResponse.event:
+                print("Found event!")
+                return eventResponse
+        time.sleep(pollInterval)
+        currentTime = time.time()
+    print("Timeout reached, no event found.")
+    return {"event": None}
