@@ -17,6 +17,8 @@ For example Sepolia testnet:
 $export PUBLIC_KEY="your_public_key"
 $export PRIVATE_KEY="your_private_key"
 $export WEB3_INFURA_PROJECT_ID="your_infura_project_id"
+$export PINATA_API_KEY="your_pinata_api_key"
+$export PINATA_API_SECRET="your_pinata_secret_key"
 ```
 ```
 $brownie run scripts/deploy.py --network sepolia
