@@ -43,7 +43,7 @@ def writeMetadata(nNfts, nftSC):
             )
             imageToUpload = None
             imagePath = "./img/{}.jpg".format(
-                country.lower().replace('_', '-'))
+                country.lower())
             imageToUpload = uploadToIpfs(imagePath)
             
             nftMetadata["image"] = imageToUpload
@@ -56,9 +56,7 @@ def uploadToIpfs(filePath):
     with Path(filePath).open("rb") as fp:
         imageBinary = fp.read()
         ipfsUrl = (
-            os.getenv("IPFS_URL")
-            if os.getenv("IPFS_URL")
-            else "http://localhost:5001"
+            "http://127.0.0.1:5001"
         )
         response = requests.post(ipfsUrl + "/api/v0/add",
                                  files={"file": imageBinary})
