@@ -5,7 +5,7 @@ from pathlib import Path
 PINATA_BASE_URL = 'https://api.pinata.cloud/'
 endpoint = 'pinning/pinFileToIPFS'
 # Change this to upload a different file
-filepath = './img/pt.jpg'
+filepath = './metadata/3-CH.json'
 filename = filepath.split('/')[-1:][0]
 headers = {'pinata_api_key': config["pinata"]["key"],
            'pinata_secret_api_key': config["pinata"]["secret"]}

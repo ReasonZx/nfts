@@ -8,6 +8,9 @@ compiler:
       - "@chainlink=smartcontractkit/chainlink@2.0.0"
 wallets:
   from_key: ${PRIVATE_KEY}
+pinata:
+  secret: ${PINATA_API_SECRET}
+  key: ${PINATA_API_KEY}
 jsonNftURI:
   pt: "https://api.npoint.io/27c7c27ff7ab13397ab2"
   de: "https://api.npoint.io/a461d96e61596b6064b7"
