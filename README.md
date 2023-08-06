@@ -1,11 +1,14 @@
 # Nfts
 
 Smart Contract example for simpleNFT deployed @ **0x5e76df22686883e0649c61d89891310814c2bd9b** on Eth Testnet - **Sepolia**
+
 Smart Contract example for advancedNFT deployed @ **0x0226baCB371bf7228167F8F4A8dA5260F5AB9E60** on Eth Testnet - **Sepolia**
 
+.
 
 OpenSea link for simpleNFTs:
 https://testnets.opensea.io/collection/flags-10
+
 OpenSea link for advancedNFTs:
 https://testnets.opensea.io/collection/flags-14
 
